@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gestionar Productos</title>
 
-<!-- Bootstrap CSS: permite usar clases listas para columnas, botones, tablas, formularios y modal. -->
+<!-- Bootstrap CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/estilos.css">
 
@@ -13,14 +13,10 @@
 
 <body>
 
-<!-- container-fluid es de Bootstrap y hace que el contenedor ocupe todo el ancho. -->
+<!-- Contenido principal -->
 <div class="container-fluid">
-  <!-- row es de Bootstrap y permite dividir la pantalla en columnas. -->
   <div class="row">
-
-    <!-- col-2 usa 2 columnas de Bootstrap; p-3 agrega espacio interno; sidebar viene del CSS propio. -->
     <div class="col-2 sidebar p-3">
-      <!-- text-center centra el texto y mb-4 agrega margen inferior con Bootstrap. -->
       <h4 class="text-center mb-4">🍗 Pollería</h4>
 
       <a href="index.html" class="menu-item">
@@ -47,22 +43,14 @@
         🚪 <span>Cerrar sesión</span>
       </a>
     </div>
-
-    <!-- col-10 usa 10 columnas de Bootstrap para el contenido principal; p-4 agrega espacio interno. -->
     <div class="col-10 p-4">
-
-      <!-- d-flex ordena título y botón en fila; justify-content-between los separa; align-items-center los centra verticalmente. -->
       <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="mb-0">📦 Gestión de Productos</h2>
-        <!-- btn y btn-primary son clases de Bootstrap para mostrar un botón azul. El id se usa en productos.js. -->
         <button class="btn btn-primary" id="btnNuevoProducto" type="button">
           + Nuevo producto
         </button>
       </div>
-
-      <!-- table, table-bordered, table-hover y shadow-sm son clases de Bootstrap para dar estilo a la tabla. -->
       <table class="table table-bordered table-hover shadow-sm">
-        <!-- table-dark es de Bootstrap y oscurece el encabezado de la tabla. -->
         <thead  class="table-dark">
           <tr>
             <th>Nombre</th>
@@ -74,30 +62,20 @@
         </thead>
         <tbody id="tablaProductos"></tbody>
       </table>
-
-      <!-- modal y fade son clases de Bootstrap para crear una ventana emergente con animación. -->
+      
+      <!-- Modal de productos -->
       <div class="modal fade" id="productoModal" tabindex="-1" aria-labelledby="productoModalLabel" aria-hidden="true">
-        <!-- modal-dialog-centered centra el modal verticalmente en la pantalla. -->
         <div class="modal-dialog modal-dialog-centered">
-          <!-- modal-content contiene toda la estructura visible del modal. -->
           <div class="modal-content">
-            <!-- modal-header es la cabecera del modal, donde va el título y el botón cerrar. -->
             <div class="modal-header">
-              <!-- modal-title da formato al título. El id permite cambiar el texto desde productos.js. -->
               <h5 class="modal-title" id="productoModalLabel">Crear producto</h5>
-              <!-- btn-close y data-bs-dismiss="modal" son de Bootstrap y cierran el modal. -->
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
             </div>
-            <!-- modal-body contiene el formulario dentro del modal. -->
             <div class="modal-body">
               <form id="formProducto">
-                <!-- row y align-items-center organizan el label y el campo en una fila alineada. -->
                 <div class="mb-3 row align-items-center">
-                  <!-- col-sm-3 define el ancho del label; col-form-label lo alinea con el campo. -->
                   <label for="modalCategoria" class="col-sm-3 col-form-label">Categoría:</label>
-                  <!-- col-sm-9 define el ancho del campo dentro de la fila. -->
                   <div class="col-sm-9">
-                    <!-- form-select es de Bootstrap y da estilo al selector. -->
                     <select id="modalCategoria" class="form-select">
                       <option value="pollo">Pollo</option>
                       <option value="papas">Papas</option>
@@ -109,7 +87,6 @@
                 <div class="mb-3 row align-items-center">
                   <label for="modalNombre" class="col-sm-3 col-form-label">Nombre:</label>
                   <div class="col-sm-9">
-                    <!-- form-control es de Bootstrap y da estilo al input. -->
                     <input type="text" id="modalNombre" class="form-control" placeholder="Nombre del producto" required>
                   </div>
                 </div>
@@ -117,26 +94,17 @@
                 <div class="mb-3 row align-items-center">
                   <label for="modalPrecio" class="col-sm-3 col-form-label">Precio:</label>
                   <div class="col-sm-9">
-                    <!-- form-control da estilo al campo numerico; min y step validan el precio. -->
                     <input type="number" step="0.01" min="0.01" id="modalPrecio" class="form-control" placeholder="Precio (S/)" required>
                   </div>
                 </div>
-
-                <!-- form-check organiza el checkbox con su texto usando Bootstrap. -->
                 <div class="form-check mb-3">
-                  <!-- form-check-input da estilo al checkbox. -->
                   <input class="form-check-input" type="checkbox" value="" id="modalEstado" checked>
-                  <!-- form-check-label da estilo al texto del checkbox. -->
                   <label class="form-check-label" for="modalEstado">
                     Estado activo
                   </label>
                 </div>
-
-                <!-- modal-footer coloca los botones al final del modal; px-0 quita padding horizontal. -->
                 <div class="modal-footer px-0">
-                  <!-- btn-danger muestra el botón rojo; data-bs-dismiss cierra el modal sin guardar. -->
                   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
-                  <!-- btn-success muestra el botón verde; submit envia el formulario y productos.js lo guarda. -->
                   <button type="submit" class="btn btn-success">Guardar</button>
                 </div>
               </form>
@@ -149,7 +117,7 @@
   </div>
 </div>
 
-<!-- Bootstrap JS: permite que funcionen componentes como el modal, show(), hide() y data-bs-dismiss. -->
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/productos.js"></script>
 
